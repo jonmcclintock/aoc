@@ -1063,20 +1063,18 @@ IN=($RAW)
 
 P=0
 C=1
-while : do
-    J=${IN[$P]};
-    if [[ `expr $C % 100` -eq 0 ]]; then
-        echo C $C P $P J $J
-    fi
+L=${#IN[@]}
+while :; do
+    ((J=IN[P]))
     if [[ $J -ge 3 ]]; then
-        IN[$P]=`expr $J - 1`
+        ((IN[P]=J-1))
     else
-        IN[$P]=`expr $J + 1`
+        ((IN[P]=J+1))
     fi
-    P=`expr $P + $J`
-    if [[ $P -ge ${#IN[@]} ]] ; then 
+    ((P=P+J))
+    if [[ $P -ge $L ]]; then
         break
-    fi;
-    C=`expr $C + 1`
+    fi
+    ((C=C+1))
 done
 echo $C

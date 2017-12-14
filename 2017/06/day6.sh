@@ -7,21 +7,22 @@ FIRST_SEEN=0
 
 while :
 do
-    C=`expr $C + 1`
+    ((C=C+1))
     MAX=0
     AT=0
     for i in `seq 0 ${#IN[@]}`; do
-        if [[ ${IN[$i]} -gt $MAX ]] ; then
+        v=${IN[$i]}
+        if [[ $v -gt $MAX ]] ; then
             AT=$i
-            MAX=${IN[$i]}
+            MAX=$v
         fi
     done
 
     IN[$AT]=0
-    POS=`expr $AT + $i`
+    ((POS=AT+i))
     for i in `seq 1 $MAX` ; do 
-        POS=`expr \( $POS + 1 \) % ${#IN[@]}`
-        IN[$POS]=`expr ${IN[$POS]} + 1`
+        ((POS=(POS+1)%${#IN[@]}))
+        ((IN[POS]=IN[$POS]+1))
     done
 
     IFS=$'\n'
