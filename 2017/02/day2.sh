@@ -16,4 +16,4 @@ IN="116 1259 1045 679 1334 157 277 1217 218 641 1089 136 247 1195 239 834
 2432 4030 3397 4032 3952 2727 157 3284 3450 3229 4169 3471 4255 155 127 186
 919 615 335 816 138 97 881 790 855 89 451 789 423 108 95 116"
 
-SUM=0; IFS=$'\n'; for line in $IN; do eval ROW=($line); eval NUMS=(`printf '%s\n' ${ROW[@]} | sort -n | tr '\n' ' '`); ((LAST=${#NUMS[@]}-1)); for i in `seq $LAST -1 0` ; do A=${NUMS[$i]}; for j in `seq 0 $LAST` ; do B=${NUMS[$j]}; if [[ $A -eq $B ]]; then break; fi; ((MOD=A%B)); if [[ $MOD -eq '0' ]]; then ((SUM=SUM+A/B)); break 2; fi; done; done; done; echo $SUM
+SUM=0; IFS=$'\n'; for line in $IN; do eval ROW=($line); eval NUMS=(`printf '%s\n' ${ROW[@]} | sort -n | tr '\n' ' '`); ((LAST=${#NUMS[@]}-1)); for i in `seq $LAST -1 0` ; do A=${NUMS[$i]}; for j in `seq 0 $LAST` ; do B=${NUMS[$j]}; if [[ $A -eq $B ]]; then break; fi; ((MOD=A%B)); if [[ $MOD -eq '0' ]]; then ((SUM+=A/B)); break 2; fi; done; done; done; echo $SUM

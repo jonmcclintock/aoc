@@ -7,7 +7,7 @@ FIRST_SEEN=0
 
 while :
 do
-    ((C=C+1))
+    ((C++))
     MAX=0
     AT=0
     for i in `seq 0 ${#IN[@]}`; do

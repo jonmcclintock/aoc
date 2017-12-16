@@ -512,4 +512,4 @@ ydjhhf yeltadb lwi cjdcb ovaox xrdm vkxub
 zax xza admbc lvpzfeh auxn rwasj
 kebx eild nrskdr meja jxczomh gcne"
 
-SUM=0; IFS=$'\n'; for line in $IN; do IFS=" "; eval "ROW=($line)"; WORDS=`echo ${ROW[@]} | wc -w`; UNIQ=`printf '%s\n' ${ROW[@]} | sort | uniq | wc -w`; if [[ $WORDS -eq $UNIQ ]] ; then ((SUM=SUM+1)) ; fi ; done ; echo $SUM
+SUM=0; IFS=$'\n'; for line in $IN; do IFS=" "; eval "ROW=($line)"; WORDS=`echo ${ROW[@]} | wc -w`; UNIQ=`printf '%s\n' ${ROW[@]} | sort | uniq | wc -w`; if [[ $WORDS -eq $UNIQ ]] ; then ((SUM++)) ; fi ; done ; echo $SUM

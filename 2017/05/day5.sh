@@ -1061,4 +1061,4 @@ RAW="2
 -294"
 IN=($RAW)
 
-P=0; C=1; L=${#IN[@]}; while :; do ((J=IN[P])); if [[ $J -ge 3 ]]; then ((IN[P]=J-1)); else ((IN[P]=J+1)); fi; ((P=P+J)); if [[ $P -ge $L ]]; then break; fi; ((C=C+1)); done; echo $C
+P=0; C=1; L=${#IN[@]}; while :; do ((J=IN[P])); if [[ $J -ge 3 ]]; then ((IN[P]=J-1)); else ((IN[P]=J+1)); fi; ((P+=J)); if [[ $P -ge $L ]]; then break; fi; ((C++)); done; echo $C

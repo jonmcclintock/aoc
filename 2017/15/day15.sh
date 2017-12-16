@@ -25,7 +25,7 @@ for i in `seq 0 $rounds`; do
 	gen $factorB $criteriaB $b; b=$r
 
 	if (( (a & 0xffff) == (b & 0xffff) )); then
-		(( matches=matches+1 ))
+		(( matches++ ))
 	fi
 done
 

@@ -1071,10 +1071,10 @@ while :; do
     else
         ((IN[P]=J+1))
     fi
-    ((P=P+J))
+    ((P+=J))
     if [[ $P -ge $L ]]; then
         break
     fi
-    ((C=C+1))
+    ((C++))
 done
 echo $C

@@ -512,4 +512,4 @@ ydjhhf yeltadb lwi cjdcb ovaox xrdm vkxub
 zax xza admbc lvpzfeh auxn rwasj
 kebx eild nrskdr meja jxczomh gcne"
 
-SUM=0; IFS=$'\n'; for line in $IN; do IFS=" "; ROW=(); for word in $line ; do ROW+=(`echo $word | grep -o . | sort | tr -d "\n"`); done; UNIQ=`printf '%s\n' ${ROW[@]} | sort | uniq | wc -w`; if [[ ${#ROW[@]} -eq $UNIQ ]] ; then ((SUM=SUM+1)) ; fi ; done ; echo $SUM
+SUM=0; IFS=$'\n'; for line in $IN; do IFS=" "; ROW=(); for word in $line ; do ROW+=(`echo $word | grep -o . | sort | tr -d "\n"`); done; UNIQ=`printf '%s\n' ${ROW[@]} | sort | uniq | wc -w`; if [[ ${#ROW[@]} -eq $UNIQ ]] ; then ((SUM++)) ; fi ; done ; echo $SUM

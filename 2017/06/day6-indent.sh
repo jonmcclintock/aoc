@@ -9,7 +9,7 @@ FIRST_SEEN=0
 
 while :
 do
-    ((C=C+1))
+    ((C++))
     MAX=0
     MAX_AT=0
     for i in `seq 0 $L`; do
