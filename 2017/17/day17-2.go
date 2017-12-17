@@ -14,7 +14,7 @@ func main() {
 		if cur == 0 {
 			afterZero = i
 		}
-		cur = (cur + 1) % (i + 1)
+		cur = cur + 1
 	}
 
 	fmt.Printf("After zero is %d\n", afterZero)
