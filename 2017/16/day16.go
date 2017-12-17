@@ -104,10 +104,26 @@ func main() {
 		positions[i] = 'a' + byte(i)
 	}
 
+	firstRepeat := ""
+	firstRepeatAt := 0
+	cycleLength := 0
 	for i := 0; i < rounds; i++ {
 		old := string(positions)
 		if n, ok := history[old]; ok {
 			positions = []byte(n)
+			if firstRepeat != "" {
+				if firstRepeat == old {
+					cycleLength = i - firstRepeatAt
+					fmt.Printf("Found a cycle of %d rounds at %d\n", cycleLength, i)
+					for (i + cycleLength) < rounds {
+						i += cycleLength
+					}
+					continue
+				}
+			} else {
+				firstRepeat = old
+				firstRepeatAt = i
+			}
 			continue
 		}
 
