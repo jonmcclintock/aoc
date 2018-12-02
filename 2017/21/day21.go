@@ -126,7 +126,7 @@ func main() {
 	cur := parsePattern(seed)
 	for i := 0; i < rounds; i++ {
 		fmt.Printf("Round %d, input is %dx%d\n", i, len(cur), len(cur))
-		dump(cur)
+		//dump(cur)
 
 		var is, os int
 		var r ruleSet
@@ -169,5 +169,5 @@ func main() {
 		cur = next
 	}
 
-	dump(cur)
+	//dump(cur)
 }
