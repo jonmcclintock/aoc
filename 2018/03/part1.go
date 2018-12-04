@@ -59,7 +59,7 @@ func countOverlap(canvas [][]int) int {
 
 func main() {
 	if len(os.Args[1:]) != 1 {
-		log.Fatal(fmt.Errorf("Usage: %s input-file", os.Args[0]))
+		log.Fatalf("Usage: %s input-file", os.Args[0])
 	}
 
 	file, err := os.Open(os.Args[1])

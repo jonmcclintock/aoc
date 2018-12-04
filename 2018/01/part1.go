@@ -10,7 +10,7 @@ import (
 
 func main() {
 	if len(os.Args[1:]) != 1 {
-		log.Fatal(fmt.Errorf("Usage: part1.go input-file"))
+		log.Fatalf("Usage: part1.go input-file")
 	}
 
 	file, err := os.Open(os.Args[1])

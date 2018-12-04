@@ -32,7 +32,7 @@ func runFile(infile string, cur int, seen map[int]bool) (bool, int, map[int]bool
 
 func main() {
 	if len(os.Args[1:]) != 1 {
-		log.Fatal(fmt.Errorf("Usage: part1.go input-file"))
+		log.Fatalf("Usage: part1.go input-file")
 	}
 
 	found := false
