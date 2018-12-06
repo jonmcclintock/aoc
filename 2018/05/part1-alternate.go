@@ -9,21 +9,23 @@ import (
 )
 
 func reactUnits(p []byte) []byte {
-	var i int
 	var newP []byte
 
-	for i := 0; i < len(p)-1; i++ {
-		a, b := rune(p[i]), rune(p[i+1])
+	for srcI := 0; srcI < len(p); {
+		if len(newP) == 0 {
+			newP = append(newP, p[srcI])
+			srcI++
+		}
+
+		a, b := rune(newP[len(newP)-1]), rune(p[srcI])
 		if (unicode.IsLower(a) && unicode.IsUpper(b) && a == unicode.ToLower(b)) ||
 			(unicode.IsUpper(a) && unicode.IsLower(b) && a == unicode.ToUpper(b)) {
-			i++
-			continue
+			srcI++
+			newP = newP[:len(newP)-1]
+		} else {
+			newP = append(newP, p[srcI])
+			srcI++
 		}
-		newP = append(newP, byte(a))
-	}
-
-	if i < len(p) {
-		newP = append(newP, p[i])
 	}
 
 	return newP
