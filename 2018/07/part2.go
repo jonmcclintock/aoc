@@ -80,16 +80,18 @@ func main() {
 	workerTimes := make([]int, workerCount)
 	workerTasks := make([]*Step, workerCount)
 	for {
-		fmt.Printf("Time %03d: ", curTime)
+		// fmt.Printf("Time %03d: ", curTime)
 		curTime++
 
 		busy := false
+		full := true
 		for i := 0; i < workerCount; i++ {
 			if workerTimes[i] == 0 {
-				fmt.Printf(".    ")
+				//fmt.Printf(".    ")
+				full = false
 				continue
 			}
-			fmt.Printf("%s    ", workerTasks[i].id)
+			// fmt.Printf("%s    ", workerTasks[i].id)
 			busy = true
 			workerTimes[i]--
 			if workerTimes[i] == 0 {
@@ -100,10 +102,14 @@ func main() {
 				}
 			}
 		}
-		fmt.Printf("\n")
+		// fmt.Printf("\n")
 
 		if !busy && len(steps) == 0 {
 			break
+		}
+
+		if full {
+			continue
 		}
 
 		noPrevs := make([]*Step, 0)
@@ -134,5 +140,6 @@ func main() {
 		}
 	}
 
+	fmt.Printf("Steps to completion: %d\n", curTime-1)
 	fmt.Println(result.String())
 }
