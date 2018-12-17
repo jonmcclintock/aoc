@@ -308,6 +308,9 @@ func targetAndAttack(u *Unit, allUnits []*Unit, cave [][]Square) {
 		x, y := u.X+dir[0], u.Y+dir[1]
 		if cave[y][x] == enemy {
 			for _, t := range allUnits {
+				if t.HP <= 0 {
+					continue
+				}
 				if t.X == x && t.Y == y && (weakest == nil || t.HP < weakest.HP) {
 					weakest = t
 				}
